@@ -13,8 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
----@diagnostic disable-next-line: param-type-mismatch
-
 require("vim-settings")
 require("keymap")
+
 require("lazy").setup("plugins")
