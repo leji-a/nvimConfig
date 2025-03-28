@@ -4,7 +4,7 @@ local key = vim.keymap.set
 
 -- neovim
 key("n", "<leader>7", function()
-	vim.cmd(":nohlsearch")
+  vim.cmd(":nohlsearch")
 end, { noremap = true })
 
 key("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Open lazy menu" })
@@ -23,5 +23,5 @@ key("n", "T", "<cmd>TransparentToggle<cr>", { desc = "Toggle transparent backgro
 -- Twilight
 key("n", "<leader>tw", "<cmd>Twilight<cr>", { desc = "Toggle twilight" })
 
--- Mason 
+-- Mason
 key("n", "<leader>ms", "<cmd>Mason<cr>", { desc = "Open Mason menu" })
