@@ -4,12 +4,12 @@ local key = vim.keymap.set
 
 -- neovim
 key("n", "<leader>7", function()
-  vim.cmd(":nohlsearch")
+	vim.cmd(":nohlsearch")
 end, { noremap = true })
 
 key("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Open lazy menu" })
 
-key("n", "<leader>gf", vim.lsp.buf.format, { desc = "buf format" })
+key("n", "<leader>bf", vim.lsp.buf.format, { desc = "buf format" })
 -- Oil
 key("n", "<leader>o", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
