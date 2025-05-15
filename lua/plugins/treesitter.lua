@@ -11,6 +11,7 @@ return {
 				"rust",
 				"toml",
 				"html",
+				"rust",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },

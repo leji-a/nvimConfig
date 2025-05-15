@@ -20,14 +20,21 @@ return {
 		})
 		mason_lspconfig.setup({
 			ensure_installed = {
+				-- lsp
 				"lua_ls",
+				"zls",
+				"rust_analyzer",
 			},
 		})
 		mason_tool_installer.setup({
 			ensure_installed = {
+				-- formatters
 				"stylua",
 				"black",
 				"isort",
+				"ast_grep",
+				-- linter
+				"bacon",
 			},
 		})
 	end,

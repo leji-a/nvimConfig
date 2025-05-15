@@ -18,6 +18,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				rust = { "ast_grep" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
