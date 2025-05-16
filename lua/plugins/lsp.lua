@@ -7,13 +7,12 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- Import plugins
 		local lspconfig = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 
-		-- Configure diagnostic signs using the modern approach
+		-- Diagnostic signs
 		vim.diagnostic.config({
 			signs = {
 				text = {
@@ -37,13 +36,12 @@ return {
 			},
 		})
 
-		-- Configure LSP keymaps on attach
+		-- LSP keymaps
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
 
-				-- Navigation
 				opts.desc = "Show LSP references"
 				keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
 
@@ -59,14 +57,12 @@ return {
 				opts.desc = "Show LSP type definitions"
 				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
-				-- Code actions
 				opts.desc = "See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-				-- Diagnostics
 				opts.desc = "Show buffer diagnostics"
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
@@ -79,57 +75,52 @@ return {
 				opts.desc = "Go to next diagnostic"
 				keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-				-- Documentation
-				opts.desc = "Show documentation for what is under cursor"
+				opts.desc = "Show documentation"
 				keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-				-- LSP management
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
 			end,
 		})
 
-		-- Configure LSP capabilities with cmp integration
 		local capabilities = vim.tbl_deep_extend(
 			"force",
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_nvim_lsp.default_capabilities()
 		)
 
-		-- Configure language servers
-		mason_lspconfig.setup_handlers({
-			-- Default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-
-			-- Server-specific configurations
-
-			["lua_ls"] = function()
-				lspconfig.lua_ls.setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							diagnostics = { globals = { "vim" } }, -- Recognize vim global
-							completion = { callSnippet = "Replace" },
-						},
-					},
-				})
-			end,
-
-			["zls"] = function()
-				lspconfig.zls.setup({
-					capabilities = capabilities,
-				})
-			end,
-
-			["rust_analyzer"] = function()
-				lspconfig.rust_analyzer.setup({
-					capabilities = capabilities,
-				})
-			end,
+		-- Setup mason
+		require("mason").setup()
+		mason_lspconfig.setup({
+			ensure_installed = { "lua_ls", "rust_analyzer", "zls" },
 		})
+
+		-- Setup each server manually
+		local servers = {
+			lua_ls = {
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostics = { globals = { "vim" } },
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = { enable = false },
+						completion = { callSnippet = "Replace" },
+					},
+				},
+			},
+			rust_analyzer = {},
+			zls = {},
+		}
+
+		require("lazy").load({ plugins = { "neodev.nvim" } })
+		require("neodev").setup({})
+
+		for server_name, opts in pairs(servers) do
+			opts.capabilities = capabilities
+			lspconfig[server_name].setup(opts)
+		end
 	end,
 }

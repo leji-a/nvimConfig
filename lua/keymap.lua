@@ -25,6 +25,3 @@ key("n", "<leader>tw", "<cmd>Twilight<cr>", { desc = "Toggle twilight" })
 
 -- Mason
 key("n", "<leader>ms", "<cmd>Mason<cr>", { desc = "Open Mason menu" })
-
---ToggleTerm
-key("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Open terminal" })
