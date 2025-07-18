@@ -92,7 +92,7 @@ return {
 		-- Setup mason
 		require("mason").setup()
 		mason_lspconfig.setup({
-			ensure_installed = { "lua_ls", "rust_analyzer", "zls" },
+			ensure_installed = { "lua_ls", "rust_analyzer", "zls", "clangd" },
 		})
 
 		-- Setup each server manually
@@ -113,6 +113,7 @@ return {
 			},
 			rust_analyzer = {},
 			zls = {},
+			clangd = {},
 		}
 
 		require("lazy").load({ plugins = { "neodev.nvim" } })

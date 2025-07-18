@@ -24,6 +24,7 @@ return {
 				"lua_ls",
 				"zls",
 				"rust_analyzer",
+				"clangd",
 			},
 		})
 		mason_tool_installer.setup({
@@ -35,6 +36,7 @@ return {
 				"ast_grep",
 				-- linter
 				"bacon",
+				"ast_grep",
 			},
 		})
 	end,
