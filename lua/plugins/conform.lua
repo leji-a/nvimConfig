@@ -4,7 +4,6 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
-
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "prettier" },
@@ -13,12 +12,12 @@ return {
 				typescriptreact = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
-				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				rust = { "ast_grep" },
+				json = { "biome" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

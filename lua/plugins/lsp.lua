@@ -113,6 +113,7 @@ return {
 			rust_analyzer = {},
 			zls = {},
 			clangd = {},
+			biome = {},
 		}
 
 		require("lazy").load({ plugins = { "neodev.nvim" } })

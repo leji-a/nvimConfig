@@ -35,7 +35,6 @@ return {
 				"isort",
 				"ast_grep",
 				-- linter
-				"bacon",
 				"ast_grep",
 			},
 		})
