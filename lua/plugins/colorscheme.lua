@@ -30,15 +30,16 @@
 --  end,
 --}
 
-local hybrid = {
-	"HoNamDuong/hybrid.nvim",
-	priority = 1000,
-	opts = {},
-	config = function()
-		require("hybrid").setup({})
-		vim.cmd("colorscheme hybrid")
-	end,
-}
+-- local hybrid = {
+-- 	"HoNamDuong/hybrid.nvim",
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		require("hybrid").setup({})
+-- 		vim.cmd("colorscheme hybrid")
+-- 	end,
+-- }
+
 --local abstract_cs = {
 --	"Abstract-IDE/Abstract-cs",
 --	priority = 1000,
@@ -48,4 +49,28 @@ local hybrid = {
 --	end,
 --}
 
-return hybrid
+-- local techbase = {
+-- 	"vieitesss/techbase.nvim",
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		vim.cmd("colorscheme techbase")
+-- 	end,
+-- }
+
+local kanagawa = {
+	"rebelot/kanagawa.nvim",
+	priority = 1000,
+	opts = {},
+	config = function()
+		require("kanagawa").setup({
+			commentStyle = { italic = true },
+			undercurl = true,
+			transparent = false,
+			theme = "dragon",
+		})
+		vim.cmd("colorscheme kanagawa")
+	end,
+}
+
+return kanagawa
