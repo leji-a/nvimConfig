@@ -10,6 +10,7 @@ end, { noremap = true })
 key("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Open lazy menu" })
 
 key("n", "<leader>bf", vim.lsp.buf.format, { desc = "buf format" })
+
 -- Oil
 key("n", "<leader>o", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
