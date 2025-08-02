@@ -1,5 +1,4 @@
 local key = vim.keymap.set
-
 -- local nkey = vim.api.nvim_set_keymap
 
 -- neovim
@@ -31,5 +30,8 @@ key("n", "<leader>ms", "<cmd>Mason<cr>", { desc = "Open Mason menu" })
 key("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "Toggle undo-tree" })
 
 -- GitDiff
-vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Open Diffview" })
-vim.keymap.set("n", "<leader>gc", ":DiffviewClose<CR>", { desc = "Close Diffview" })
+key("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Open Diffview" })
+key("n", "<leader>gc", ":DiffviewClose<CR>", { desc = "Close Diffview" })
+
+-- fff.nvim
+key("n", "<leader>ff", ":lua require('fff').find_files()<CR>", { desc = "Toggle fff.nvim" })
