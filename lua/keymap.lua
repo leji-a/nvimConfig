@@ -6,6 +6,8 @@ key("n", "<leader>7", function()
 	vim.cmd(":nohlsearch")
 end, { noremap = true })
 
+key("n", "<C-c>", "<esc>")
+
 key("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Open lazy menu" })
 
 key("n", "<leader>bf", vim.lsp.buf.format, { desc = "buf format" })
