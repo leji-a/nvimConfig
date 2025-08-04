@@ -73,4 +73,15 @@ local kanagawa = {
 	end,
 }
 
+-- local rose_pine = {
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		require("rose-pine").setup({})
+-- 		vim.cmd("colorscheme rose-pine")
+-- 	end,
+-- }
+
 return kanagawa

@@ -34,6 +34,3 @@ key("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "Toggle undo-tree" })
 -- GitDiff
 key("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Open Diffview" })
 key("n", "<leader>gc", ":DiffviewClose<CR>", { desc = "Close Diffview" })
-
--- fff.nvim
-key("n", "<leader>ff", ":lua require('fff').find_files()<CR>", { desc = "Toggle fff.nvim" })
