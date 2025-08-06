@@ -6,4 +6,4 @@ vim.cmd("set number")
 vim.wo.relativenumber = true
 vim.g.mapleader = " "
 vim.loader.enable()
-vim.opt.guicursor = "n-v-i-c:block-Cursor"
+vim.o.guicursor = "n-v-i-c:block-Cursor"
