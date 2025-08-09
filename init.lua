@@ -17,6 +17,6 @@ vim.o.undofile = true -- mkdir -p ~/.local/state/nvim/undo
 vim.o.undodir = vim.fn.stdpath("cache") .. "/undo"
 
 require("vim-settings")
-require("keymap")
+require("keybinds")
 
 require("lazy").setup("plugins")
