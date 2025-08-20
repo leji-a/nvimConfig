@@ -15,11 +15,13 @@ vim.opt.ttyfast = true
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
 
--- LSP timeout settings
-vim.lsp.handlers["textDocument/formatting"] = vim.lsp.with(
-	vim.lsp.handlers["textDocument/formatting"],
-	{ timeout = 5000 }
-)
+-- Neovim 0.12 optimizations
+vim.opt.mousescroll = "ver:3,hor:6"
+vim.opt.mousefocus = true
+vim.opt.mousemoveevent = true
+vim.opt.smoothscroll = true
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 vim.opt.modeline = false
 vim.opt.modelines = 0
 

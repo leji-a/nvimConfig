@@ -40,14 +40,14 @@
 -- 	end,
 -- }
 
---local abstract_cs = {
---	"Abstract-IDE/Abstract-cs",
---	priority = 1000,
---	opts = {},
---	config = function()
---		vim.cmd("colorscheme abscs")
---	end,
---}
+-- local abstract_cs = {
+-- 	"Abstract-IDE/Abstract-cs",
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		vim.cmd("colorscheme abscs")
+-- 	end,
+-- }
 
 -- local techbase = {
 -- 	"vieitesss/techbase.nvim",
@@ -83,6 +83,7 @@ local kanagawa = {
 -- 		vim.cmd("colorscheme rose-pine")
 -- 	end,
 -- }
+
 -- local vague = {
 -- 	"vague2k/vague.nvim",
 -- 	lazy = false,
@@ -92,5 +93,4 @@ local kanagawa = {
 -- 		vim.cmd("colorscheme vague")
 -- 	end,
 -- }
-
 return kanagawa

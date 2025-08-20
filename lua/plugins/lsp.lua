@@ -79,6 +79,12 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
+				opts.desc = "Toggle inlay hints"
+				keymap.set("n", "<leader>ih", function()
+					local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })
+					vim.lsp.inlay_hint.enable(not enabled)
+				end, opts)
 			end,
 		})
 
@@ -95,6 +101,9 @@ return {
 				end
 			end,
 		})
+
+		-- Enable inlay hints for better code understanding (Neovim 0.12 feature)
+		-- Note: inlay hints are enabled per-buffer when LSP attaches
 
 		local capabilities = vim.tbl_deep_extend(
 			"force",

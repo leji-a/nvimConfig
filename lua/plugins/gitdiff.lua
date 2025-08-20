@@ -3,8 +3,20 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		require("diffview").setup({
-			file_panel = {
-				width = 35, -- Panel width
+			-- New configuration format for diffview 136+
+			view = {
+				default = {
+					layout = "diff2_horizontal",
+					winbar_info = false,
+				},
+				file_panel = {
+					layout = "diff2_horizontal",
+					winbar_info = false,
+				},
+			},
+			-- Panel sizing
+			panels = {
+				width = 35,
 			},
 		})
 	end,
