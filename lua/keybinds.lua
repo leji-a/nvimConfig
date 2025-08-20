@@ -10,7 +10,21 @@ key("n", "<C-c>", "<esc>")
 
 key("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Open lazy menu" })
 
-key("n", "<leader>bf", vim.lsp.buf.format, { desc = "buf format" })
+key("n", "<leader>bf", function()
+	-- Try LSP formatting first, fall back to Conform
+	local clients = vim.lsp.get_clients({ bufnr = 0 })
+	if #clients > 0 then
+		vim.lsp.buf.format()
+	else
+		-- Fall back to Conform formatting
+		local conform = require("conform")
+		conform.format({
+			lsp_fallback = true,
+			async = false,
+			timeout_ms = 500,
+		})
+	end
+end, { desc = "Format buffer (LSP or Conform fallback)" })
 
 -- Oil
 key("n", "<leader>s", "<cmd>Oil<cr>", { desc = "Open parent directory" })

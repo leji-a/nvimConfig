@@ -25,6 +25,9 @@ return {
 				"zls",
 				"rust_analyzer",
 				"clangd",
+				"ts_ls",
+				"pyright",
+				"vue-language-server",
 			},
 		})
 		mason_tool_installer.setup({
@@ -33,9 +36,13 @@ return {
 				"stylua",
 				"black",
 				"isort",
+				"prettier",
+				"biome",
 				"ast_grep",
-				-- linter
-				"ast_grep",
+				-- linters
+				"eslint_d",
+				"pylint",
+				"jsonlint",
 			},
 		})
 	end,

@@ -41,17 +41,17 @@ return {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
-				-- opts.desc = "Go to declaration"
-				-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+				opts.desc = "Go to declaration"
+				keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
-				-- opts.desc = "Show LSP definitions"
-				-- keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", opts)
+				opts.desc = "Show LSP definitions"
+				keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
-				-- opts.desc = "Show LSP type definitions"
-				-- keymap.set("n", "gt", "<cmd>FzfLua lsp_type_definitions<CR>", opts)
+				opts.desc = "Show LSP type definitions"
+				keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 
-				-- opts.desc = "Show buffer diagnostics"
-				-- keymap.set("n", "<leader>D", "<cmd>FzfLua diagnostics bufnr=0<CR>", opts)
+				opts.desc = "Show buffer diagnostics"
+				keymap.set("n", "<leader>D", vim.diagnostic.setloclist, opts)
 
 				opts.desc = "Show LSP references"
 				keymap.set("n", "gR", "<cmd>FzfLua lsp_references<CR>", opts)
@@ -79,6 +79,20 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+			end,
+		})
+
+		-- Auto-format on save for LSP-enabled files
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = vim.api.nvim_create_augroup("LspFormatOnSave", {}),
+			callback = function(ev)
+				local clients = vim.lsp.get_clients({ bufnr = ev.buf })
+				if #clients > 0 then
+					vim.lsp.buf.format({ 
+						async = false,
+						timeout_ms = 5000, -- Increased timeout for rust-analyzer
+					})
+				end
 			end,
 		})
 
@@ -110,10 +124,29 @@ return {
 					},
 				},
 			},
-			rust_analyzer = {},
+			rust_analyzer = {
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = {
+							command = "clippy",
+						},
+						cargo = {
+							allFeatures = true,
+						},
+						diagnostics = {
+							disabled = {},
+						},
+						completion = {
+							autoimport = true,
+						},
+					},
+				},
+			},
 			zls = {},
 			clangd = {},
-			biome = {},
+			ts_ls = {},
+			pyright = {},
+			["vue-language-server"] = {},
 		}
 
 		require("lazy").load({ plugins = { "neodev.nvim" } })
