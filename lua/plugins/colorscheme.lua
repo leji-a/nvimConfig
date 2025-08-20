@@ -83,5 +83,14 @@ local kanagawa = {
 -- 		vim.cmd("colorscheme rose-pine")
 -- 	end,
 -- }
+-- local vague = {
+-- 	"vague2k/vague.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("vague").setup({})
+-- 		vim.cmd("colorscheme vague")
+-- 	end,
+-- }
 
 return kanagawa
