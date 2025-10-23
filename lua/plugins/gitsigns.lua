@@ -44,7 +44,7 @@ return {
 					gs.toggle_current_line_blame(blame_enabled)
 
 					-- Save state to file
-					local f = io.open(state_file, "w")
+					f = io.open(state_file, "w")
 					if f then
 						f:write(tostring(blame_enabled))
 						f:close()
