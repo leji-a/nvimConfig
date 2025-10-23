@@ -8,6 +8,7 @@ return {
 	},
 	config = function()
 		local config = require("nvim-treesitter.configs")
+		---@diagnostic disable-next-line: missing-fields
 		config.setup({
 			auto_install = true,
 			ensure_installed = {
