@@ -185,7 +185,6 @@ return {
 			root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 			capabilities = capabilities,
 		}
-
 		-- Enable LSP servers
 		vim.lsp.enable({ "lua_ls", "rust_analyzer", "zls", "clangd", "ts_ls" })
 	end,
