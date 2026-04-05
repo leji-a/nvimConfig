@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	event = "BufReadPre",
 	config = function()
 		-- Path to persist blame toggle state
 		local state_file = vim.fn.stdpath("data") .. "/gitsigns_blame_state"
