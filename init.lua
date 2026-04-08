@@ -1,4 +1,7 @@
 vim.loader.enable()
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+vim.cmd("filetype detect")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,6 +18,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("options")
 require("keymaps")
-
--- Load plugins
 require("lazy").setup("plugins")

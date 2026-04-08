@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPost", "BufNewFile" },
+	event = { "BufReadpost", "BufNewFile" },
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
@@ -35,7 +35,7 @@ return {
 			textobjects = { enable = true },
 		})
 
-		-- Setup context commentstring with new method
 		require("ts_context_commentstring").setup({})
+
 	end,
 }
