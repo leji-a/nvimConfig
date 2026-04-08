@@ -1,15 +1,22 @@
-local kanagawa = {
-	"rebelot/kanagawa.nvim",
-	priority = 1000,
-	opts = {},
+-- local kanagawa = {
+-- 	"rebelot/kanagawa.nvim",
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		require("kanagawa").setup({
+-- 			commentStyle = { italic = true },
+-- 			undercurl = true,
+-- 			transparent = false,
+-- 			theme = "dragon",
+-- 		})
+-- 		vim.cmd("colorscheme kanagawa")
+-- 	end,
+-- }
+
+local token = {
+	"ThorstenRhau/token",
 	config = function()
-		require("kanagawa").setup({
-			commentStyle = { italic = true },
-			undercurl = true,
-			transparent = false,
-			theme = "dragon",
-		})
-		vim.cmd("colorscheme kanagawa")
+		vim.cmd("colorscheme token")
 	end,
 }
 
@@ -39,4 +46,4 @@ local kanagawa = {
 -- 	end,
 -- }
 
-return kanagawa
+return token
