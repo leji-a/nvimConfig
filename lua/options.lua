@@ -21,3 +21,5 @@ vim.o.modelines = 0
 vim.opt.shortmess:append("I")
 vim.g.skip_ts_context_commentstring_module = true
 vim.o.shada = "'20,<50,s10,h"
+
+-- vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
