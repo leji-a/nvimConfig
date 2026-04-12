@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadpost", "BufNewFile" },
+	-- event = { "BufReadPost", "BufNewFile" },
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
@@ -8,22 +8,18 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	config = function()
-		local config = require("nvim-treesitter.configs")
+		local config = require("nvim-treesitter.config")
 		---@diagnostic disable-next-line: missing-fields
 		config.setup({
 			auto_install = true,
 			ensure_installed = {
 				"lua",
-				"javascript",
 				"typescript",
 				"rust",
 				"toml",
 				"html",
 				"css",
-				"python",
-				"go",
 				"c",
-				"cpp",
 			},
 			highlight = {
 				enable = true,
@@ -36,6 +32,5 @@ return {
 		})
 
 		require("ts_context_commentstring").setup({})
-
 	end,
 }
