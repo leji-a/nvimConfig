@@ -16,9 +16,9 @@ return {
 		end,
 		keys = {
 			{ "ff",  ":Telescope find_files<CR>", desc = "Find Files" },
-			{ "Ffg", ":Telescope live_grep<CR>",  desc = "Grep in Files" },
-			{ "Ffb", ":Telescope buffers<CR>",    desc = "Find Buffers" },
-			{ "Fr",  ":Telescope oldfiles<CR>",   desc = "Find oldfiles" },
+			{ "tg",  ":Telescope live_grep<CR>",  desc = "Grep in Files" },
+			{ "tb",  ":Telescope buffers<CR>",    desc = "Find Buffers" },
+			{ "olf", ":Telescope oldfiles<CR>",   desc = "Find oldfiles" },
 		},
 	},
 }
