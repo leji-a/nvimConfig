@@ -3,6 +3,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
@@ -14,10 +15,10 @@ return {
 			pcall(require("telescope").load_extension, "fzf")
 		end,
 		keys = {
-			--      { "<leader>t", ":Telescope find_files<CR>", desc = "Find Files" },
-			--      { "<leader>fg", ":Telescope live_grep<CR>", desc = "Grep in Files" },
-			--      { "<leader>fb", ":Telescope buffers<CR>", desc = "Find Buffers" },
-			--      { "<leader>r", ":Telescope oldfiles<CR>", desc = "Find oldfiles" },
+			{ "ff",  ":Telescope find_files<CR>", desc = "Find Files" },
+			{ "Ffg", ":Telescope live_grep<CR>",  desc = "Grep in Files" },
+			{ "Ffb", ":Telescope buffers<CR>",    desc = "Find Buffers" },
+			{ "Fr",  ":Telescope oldfiles<CR>",   desc = "Find oldfiles" },
 		},
 	},
 }
