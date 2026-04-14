@@ -15,10 +15,11 @@ return {
 			pcall(require("telescope").load_extension, "fzf")
 		end,
 		keys = {
-			{ "ff",  ":Telescope find_files<CR>", desc = "Find Files" },
-			{ "tg",  ":Telescope live_grep<CR>",  desc = "Grep in Files" },
-			{ "tb",  ":Telescope buffers<CR>",    desc = "Find Buffers" },
-			{ "olf", ":Telescope oldfiles<CR>",   desc = "Find oldfiles" },
+			{ "ff",         ":Telescope find_files<CR>",  desc = "Find Files" },
+			{ "<leader>lg", ":Telescope live_grep<CR>",   desc = "Grep in Files" },
+			{ "tb",         ":Telescope buffers<CR>",     desc = "Find Buffers" },
+			{ "<leader>fg", ":Telescope oldfiles<CR>",    desc = "Find oldfiles" },
+			{ "<leader>fd", ":Telescope diagnostics<CR>", desc = "Telescope diagnostics" }
 		},
 	},
 }

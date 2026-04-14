@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
 	"nvim-treesitter/nvim-treesitter",
 	-- event = { "BufReadPost", "BufNewFile" },
@@ -9,7 +10,6 @@ return {
 	},
 	config = function()
 		local config = require("nvim-treesitter.config")
-		---@diagnostic disable-next-line: missing-fields
 		config.setup({
 			auto_install = true,
 			ensure_installed = {
